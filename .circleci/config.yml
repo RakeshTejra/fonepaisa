@@ -30,8 +30,35 @@ jobs:
           name: run rubocop
           command: bundle exec rake rubocop
 
+  publish_to_rubygems:
+    working_directory: ~/repos/fonepaisa
+
+    docker:
+      - image: circleci/ruby:2.6.4-buster-node
+        environment:
+          <<: *environment
+
+    steps:
+      - checkout
+
+      - run:
+          name: setup Rubygems
+          command: bash .circleci/setup-rubygems.sh
+
+      - run:
+          name: publish to Rubygems
+          command: |
+            gem build fonepaisa.gemspec
+            gem push "fonepaisa-$(git describe --tags).gem"
+
 workflows:
   version: 2
   build_and_test:
     jobs:
       - run_cops
+      - publish_to_rubygems:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
