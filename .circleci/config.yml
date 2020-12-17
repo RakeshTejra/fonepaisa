@@ -18,6 +18,7 @@ jobs:
       - run:
           name: check dependencies
           command: |
+            gem install bundler:2.1.4
             bundle -v
             bundle exec ruby -v
 
@@ -27,7 +28,7 @@ jobs:
 
       - run:
           name: run rubocop
-          command: bundle exec rubocop
+          command: bundle exec rake rubocop
 
 workflows:
   version: 2
