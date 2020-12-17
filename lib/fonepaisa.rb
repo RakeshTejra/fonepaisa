@@ -1,4 +1,6 @@
 require 'fonepaisa/configuration'
+require 'fonepaisa/client'
+require 'fonepaisa/payment_request_url'
 
 module Fonepaisa
   class FonepaisaError < StandardError; end
