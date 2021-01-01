@@ -21,7 +21,7 @@ GEM
     parser (2.7.2.0)
       ast (~> 2.4.1)
     rainbow (3.0.0)
-    rake (10.5.0)
+    rake (13.0.3)
     regexp_parser (2.0.0)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
@@ -52,7 +52,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 2.1.4)
   fonepaisa!
-  rake (~> 10.0)
+  rake (~> 13.0)
   rubocop (~> 1.6)
 
 BUNDLED WITH
